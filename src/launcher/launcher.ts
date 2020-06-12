@@ -98,6 +98,9 @@ export function SaucelabsLauncher(args,
     }
 
     connectedDrivers.delete(this.id)
-    return process.nextTick(done);
+    return process.nextTick(() => {
+      this._done();
+      done();
+  });
   })
 }
